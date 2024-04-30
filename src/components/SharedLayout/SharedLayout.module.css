@@ -1,0 +1,56 @@
+.menuNav{
+    display: flex;
+    align-items: center;
+    max-width: 100vw;
+    padding: 20px 60px;
+    justify-content: space-between;
+}
+.containerLogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+.link{
+text-decoration: none;
+font-family:'Times New Roman', Times, serif;
+font-weight: bold;
+font-size: 15px;
+color:black;
+}
+.btnLink:hover,
+.btnLink:focus{
+    background-color: #a52a2a;
+    color: #ffffff;
+}
+.btnLink:active{
+    background-color: #a52a2a;
+    color: #ffffff;
+}
+.btnLink{
+    padding: 10px 20px;
+    background-color: #8080800f;
+    border-radius: 20px;
+}
+.titleLogo{
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+.iconLogo{
+    width: 40px;
+    height: 40px;
+    fill: #a52a2a;
+    
+}
+.titleLogoDB{
+    color: #a52a2a;
+}
+.containerPages{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 30px;
+    
+}
