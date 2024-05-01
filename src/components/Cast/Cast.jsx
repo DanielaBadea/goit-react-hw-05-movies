@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import styles from './Cast.module.css'
 import { IMAGE_URL, getMoviesCredits } from "helpers/api";
 import { useParams } from "react-router-dom";
+import defaultImage from '../../img/no-poster.jpeg'
+import Spinner from "components/Spinner/Spinner";
 
 const Cast = () => {
     const [movieCredits, setMovieCredits] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const { movieId } = useParams();
 
     useEffect(() => {
@@ -12,31 +15,49 @@ const Cast = () => {
             .then(response => {
                 console.log('Response movie credits:', response)
                 setMovieCredits(response.cast);
+                setIsLoading(false);
             })
             .catch(error => {
                 console.error('Error fetching movie credits:', error);
+                setIsLoading(false)
             });
     }, [movieId]);
     
     return (
         <>
-           <ul className={styles.containerActors}>
+        {
+            isLoading ?
+            <Spinner/>
+            :
+             (<ul className={styles.containerActors}>
             {
                 movieCredits.length > 0 ? (
                     movieCredits.map(actor => (
                         <li key={actor.id} className={styles.itemsActors}>
-                            <img 
-                            src = {IMAGE_URL + actor.profile_path} 
-                            alt={actor.name}
-                            className={styles.posterActor}/>
-                            <h3 className={styles.nameActor}>{actor.name}</h3>
+                            {
+                                actor.profile_path ?
+                                <img 
+                                src = {IMAGE_URL + actor.profile_path} 
+                                alt={actor.name}
+                                className={styles.posterActor}/>
+                                
+                                :
+                                <img 
+                                src = {defaultImage}
+                                alt={'No Poster Available'}
+                                className={styles.posterActor}/>
+
+                            }
+                           <h3 className={styles.nameActor}>{actor.name}</h3>
                         </li>
                     ))
                 ) : (
                     <li>No cast available</li>
                 )
             }
-           </ul>
+           </ul>)
+        }
+          
         </>
     )
 };

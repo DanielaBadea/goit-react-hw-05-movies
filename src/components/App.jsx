@@ -6,7 +6,6 @@ import { Routes, Route } from "react-router-dom";
 import Cast from "./Cast/Cast";
 import Reviews from "./Reviews/Reviews";
 import { NotFound } from "pages/NotFound";
-
 export const App = () => {
   return (
     <main>

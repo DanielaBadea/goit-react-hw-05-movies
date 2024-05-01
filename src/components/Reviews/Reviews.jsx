@@ -12,12 +12,12 @@ const Reviews = () => {
             console.log("Reviews:", response)
             setReviews(response.results)
         })
-
-
     }, [movieId])
     return(
         <>
-        <ul className={styles.containerReviews}>
+        {
+            reviews.length > 0 ?
+            <ul className={styles.containerReviews}>
             {
                 reviews.map(review => (
                     <li key={review.id} className={styles.itemsRiviews}>
@@ -27,6 +27,10 @@ const Reviews = () => {
                 ))
             }
         </ul>
+        :
+        <h3 className={styles.defaultReviews}>No reviews found</h3>
+        }
+        
         </>
     )
 }

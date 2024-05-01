@@ -7,7 +7,7 @@ import Spinner from 'components/Spinner/Spinner';
 
 export const Home = () => {
     const [movies, setMovies] = useState([]);
-    const [hasLoading, setHasLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         getTrendingMovies()
         .then(response => {
@@ -18,11 +18,11 @@ export const Home = () => {
             } else {
                 console.error("No movies found in response");
             }
-            setHasLoading(false)
+            setIsLoading(false)
         })
         .catch(error => {
             console.error("Error fetching trending movies:", error);
-            setHasLoading(false);
+            setIsLoading(false);
         });
     }, []);
 
@@ -34,7 +34,7 @@ export const Home = () => {
              <PiPopcornBold  className={styles.iconHome}/>
             </div>
         </div>
-        {hasLoading ? <Spinner/> :  <PostersMovies movies={movies} />}
+        {isLoading ? <Spinner/> :  <PostersMovies movies={movies} context="" />}
         </div>
        
     )
