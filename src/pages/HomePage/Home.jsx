@@ -5,7 +5,7 @@ import PostersMovies from "components/PostersMovies/PostersMovies";
 import { getTrendingMovies} from 'helpers/api';
 import Spinner from 'components/Spinner/Spinner';
 
-export const Home = () => {
+ const Home = () => {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
@@ -39,3 +39,5 @@ export const Home = () => {
        
     )
 };
+
+export default Home;
