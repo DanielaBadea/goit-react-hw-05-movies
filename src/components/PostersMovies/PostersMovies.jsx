@@ -15,6 +15,15 @@ const PostersMovies = ({ movies, context }) => {
             navigate(`/movies/movies/${movieId}`);
         }
     };
+
+    const getReleaseYear = (releaseDate) => {
+        if (releaseDate) {
+            const year = releaseDate.slice(0, 4);
+            return year;
+        }
+        return "";
+    };
+
     return (
         <>
             <ul className={styles.gallery}>
@@ -39,9 +48,9 @@ const PostersMovies = ({ movies, context }) => {
                            />
                         }
                         <p className={styles.posterVote}>{movie.vote_average.toFixed(1)}</p>
-                        <p className={styles.posterTitle}>{movie.title}</p>
+                        <p className={styles.posterTitle}>{movie.title}/{getReleaseYear(movie.release_date)}</p>
                         </Link> 
-                        </li>
+                    </li>
                 ))}
             </ul>
         </>
