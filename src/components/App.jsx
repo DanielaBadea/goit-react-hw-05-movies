@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
+// import TrailerPlayer from "./TrailerPlayer/TrailerPlayer";
 
 // import NavigationBar from "./SharedLayout/SharedLayout";
 // import { Home } from "pages/HomePage/Home";
@@ -18,6 +19,7 @@ const Cast = lazy(() => import("./Cast/Cast"));
 const Reviews = lazy(() => import("./Reviews/Reviews"));
 const NavigationBar = lazy(() => import("./SharedLayout/SharedLayout"));
 const Spinner = lazy(() => import("./Spinner/Spinner"));
+const TrailerPlayer = lazy(() => import("./TrailerPlayer/TrailerPlayer"));
 
 
 
@@ -32,8 +34,9 @@ export const App = () => {
         <Route path="/movies" element = {<Movies/>} />
         <Route path="/movies/:movieId" element = {<MoviesDetails/>}>
         <Route path="cast" element={<Cast />} />
-        <Route path="reviews" element={<Reviews/>}/>
-        </Route>
+                <Route path="reviews" element={<Reviews/>}/>
+                <Route path="trailer" element={<TrailerPlayer/>}/>
+                </Route>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
       </Suspense>

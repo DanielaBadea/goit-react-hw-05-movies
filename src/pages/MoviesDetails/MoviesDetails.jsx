@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getMoviesDetails } from "helpers/api";
-import { Link, NavLink, Outlet, useParams } from "react-router-dom";
-import { IMAGE_URL } from "helpers/api";
+import { Link, NavLink, Outlet, useParams} from "react-router-dom";
+import { IMAGE_URL, getMoviesDetails } from "helpers/api";
 import styles from './MoviesDetails.module.css';
 import { MdArrowBackIos } from "react-icons/md";
 import defaultImage from '../../img/no-movie.jpg'
 import Spinner from "components/Spinner/Spinner";
+import TrailerPlayer from "components/TrailerPlayer/TrailerPlayer";
 
 const MoviesDetails = () => {
     const [movie, setMovie] = useState(null);
@@ -64,6 +64,8 @@ const MoviesDetails = () => {
                         <h2>{movie.title}/{movie.release_date.slice(0,4)}</h2>
                         <p className={styles.description}><span className={styles.overview}>Overview: </span>{movie.overview}</p>
                         <p className={styles.description}><span className={styles.genres}>Genres: </span>{movie.genres.map(genre => genre.name).join(' ')}</p>
+                        {/* <Link to ='trailer' className={styles.trailer}>Trailer</Link> */}
+                        <TrailerPlayer/>
                     </div>
                 </div>
                 <div className={styles.boxInfo}>

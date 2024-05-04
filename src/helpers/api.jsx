@@ -66,3 +66,16 @@ export const getSearchMovies = async (query) => {
         throw error; 
     }
 }
+
+export const getTrailerMovie = async (movieId) => {
+    try{
+        const response = await axios.get(`/movie/${movieId}/videos?api_key=${KEY}&language=en-US`)
+        if(response.status !== 200){
+            throw new Error ("Error fetching movies video!")
+        }
+        return response.data;
+
+    }catch(error){
+        console.error(error)
+    }
+}
