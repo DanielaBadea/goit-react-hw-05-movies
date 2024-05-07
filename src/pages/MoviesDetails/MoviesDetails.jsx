@@ -61,7 +61,7 @@ const MoviesDetails = () => {
                         <p className={styles.posterVote}>{movie.vote_average.toFixed(1)}</p>
                     </div>
                     <div className={styles.containerDetails}>
-                        <h2>{movie.title}/{movie.release_date.slice(0,4)}</h2>
+                        <h2>{movie.title} |{movie.release_date.slice(0,4)}</h2>
                         <p className={styles.description}><span className={styles.overview}>Overview: </span>{movie.overview}</p>
                         <p className={styles.description}><span className={styles.genres}>Genres: </span>{movie.genres.map(genre => genre.name).join(' ')}</p>
                         {/* <Link to ='trailer' className={styles.trailer}>Trailer</Link> */}

@@ -34,9 +34,9 @@ export const App = () => {
         <Route path="/movies" element = {<Movies/>} />
         <Route path="/movies/:movieId" element = {<MoviesDetails/>}>
         <Route path="cast" element={<Cast />} />
-                <Route path="reviews" element={<Reviews/>}/>
-                <Route path="trailer" element={<TrailerPlayer/>}/>
-                </Route>
+        <Route path="reviews" element={<Reviews/>}/>
+        <Route path="trailer" element={<TrailerPlayer/>}/>
+        </Route>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
       </Suspense>

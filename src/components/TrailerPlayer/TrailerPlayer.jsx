@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 
 const TrailerPlayer = () => {
     const [trailer, setTrailer] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
 const { movieId } = useParams();
 
 useEffect(() => {
@@ -25,8 +27,8 @@ useEffect(() => {
                 <ReactPlayer
                     url={`https://www.youtube.com/watch?v=${trailer.key}`}
                     controls={true}
-                    width="100%"
-                    height="100%"
+                    width="70%"
+                    height="70%"
                 />
             )}
         </>

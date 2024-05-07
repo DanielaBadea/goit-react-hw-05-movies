@@ -48,7 +48,7 @@ const PostersMovies = ({ movies, context }) => {
                            />
                         }
                         <p className={styles.posterVote}>{movie.vote_average.toFixed(1)}</p>
-                        <p className={styles.posterTitle}>{movie.title}/{getReleaseYear(movie.release_date)}</p>
+                        <p className={styles.posterTitle}>{movie.title} |{getReleaseYear(movie.release_date)}</p>
                         </Link> 
                     </li>
                 ))}
