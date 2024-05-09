@@ -30,7 +30,7 @@ export const App = () => {
       <Suspense fallback={<Spinner/>}>
       <Routes>
         {/* <Route path="/" element = {<NavigationBar/>} /> */}
-        <Route path="//goit-react-hw-05-movies/" end element={<Home/>}/>
+        <Route path="/goit-react-hw-05-movies/" end element={<Home/>}/>
         <Route path="/movies" element = {<Movies/>} />
         <Route path="/movies/:movieId" element = {<MoviesDetails/>}>
         <Route path="cast" element={<Cast />} />
